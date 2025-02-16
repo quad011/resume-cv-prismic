@@ -1,0 +1,11 @@
+@use "./global.scss" as *;
+@use "./typography.scss" as *;
+@use "./link.scss" as *;
+// @use "./tailwind.scss" as *;
+
+@font-face {
+    font-family: "RedHatDisplay";
+    src: url("/fonts/RedHatDisplay.woff2") format("woff2");
+    font-display: swap;
+  }
+

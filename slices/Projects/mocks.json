@@ -1,0 +1,76 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "region",
+				"type": "Text"
+			},
+			"caption": {
+				"__TYPE__": "FieldContent",
+				"value": "gravity",
+				"type": "Text"
+			},
+			"text": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Non commodo pariatur Lorem deserunt ex. Eu voluptate reprehenderit ad sint voluptate consectetur eiusmod."
+						}
+					}
+				]
+			},
+			"items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"video",
+								{
+									"key": "a2eddc69-c524-4e17-868a-b8eb91c61e6f",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "FileLink",
+										"id": "mock_Media_link",
+										"kind": "file",
+										"name": "mock_name",
+										"url": "https://source.unsplash.com/daily",
+										"size": "0",
+										"text": "alive"
+									}
+								}
+							],
+							[
+								"project_url",
+								{
+									"key": "552f4244-398d-44ab-922e-7c687bec5275",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "block"
+									}
+								}
+							],
+							[
+								"tech_stack",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "object",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
