@@ -1,4 +1,5 @@
 <script setup>
+import animationConfig from "./animationConfig";
 import { PrismicRichText } from "@prismicio/vue";
 const props = defineProps({
   title: {
@@ -22,9 +23,7 @@ itemsArray.splice(1, 0, {
   text: props.text,
 });
 
-onMounted(() => {
-  //   console.log("items", itemsArray);
-});
+onMounted(() => {});
 </script>
 
 <template>
@@ -34,16 +33,26 @@ onMounted(() => {
       <div
         v-for="(item, index) in itemsArray"
         :key="index"
-        class="px-4 w-full sm:w-1/2 xl:w-1/3 mb-10 lg:mb-20 flex flex-col h-full"
+        class="px-4 w-full sm:w-1/2 xl:w-1/3 mb-10 lg:mb-20 [&:nth-last-child(-n+3)] flex flex-col h-full"
       >
-        <m-work-box
-          :title="item?.video?.text"
-          :videoUrl="item?.video?.url"
-          :projectUrl="item?.project_url"
-          :techStack="item?.tech_stack"
-        />
+        <c-animated-element
+          :delay="index / 10"
+          :fromX="animationConfig[index % 3].fromX"
+          :fromY="animationConfig[index % 3].fromY"
+        >
+          <m-work-box
+            :title="item?.video?.text"
+            :videoUrl="item?.video?.url"
+            :projectUrl="item?.project_url"
+            :techStack="item?.tech_stack"
+          />
+        </c-animated-element>
 
-        <div v-if="item.caption" class="h-full flex flex-col">
+        <c-animated-element
+          :fromY="animationConfig[index % 3].fromY"
+          v-if="item.caption"
+          class="h-full flex flex-col"
+        >
           <h2
             v-html="item?.caption"
             class="text-24 lg:text-32 uppercase mb-5 sm:mb-3 lg:mb-7"
@@ -52,7 +61,7 @@ onMounted(() => {
           <div v-if="item.text" class="text-16 sm:text-14 xl:text-base content">
             <PrismicRichText :field="item?.text" />
           </div>
-        </div>
+        </c-animated-element>
       </div>
     </div>
   </div>

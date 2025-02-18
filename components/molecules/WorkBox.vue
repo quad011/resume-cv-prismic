@@ -38,12 +38,13 @@ const playing = ref(false);
       :controls="false"
       :muted="true"
       :loop="true"
+      class="aspect-[1.85]"
     />
     <h3 v-if="title" v-html="title" class="text-18 lg:text-24 mt-2 lg:mt-3" />
   </div>
 
-  <!-- <teleport to="body">
-    <TransitionGsap
+  <teleport to="body">
+    <t-gsap
       :leave_to="{ scale: 0.9, opacity: 0, duration: 0.4 }"
       :from="{ opacity: 0 }"
       :to="{
@@ -53,16 +54,16 @@ const playing = ref(false);
       }"
       class="overflow-auto"
     >
-      <Lightbox v-if="openPopup" @close="openPopup = false">
-        <Popup
+      <c-lightbox v-if="openPopup" @close="openPopup = false">
+        <m-popup
           :title="title"
           :videoUrl="videoUrl"
-          :projectUrl="projectUrl"
+          :projectUrl="projectUrl.url"
           :techStack="techStack"
         />
-      </Lightbox>
-    </TransitionGsap>
-  </teleport> -->
+      </c-lightbox>
+    </t-gsap>
+  </teleport>
 </template>
 
 <style lang="scss" scoped>

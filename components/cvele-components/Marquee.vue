@@ -19,20 +19,11 @@ const props = defineProps({
   },
 });
 
-const init = () => {
+onMounted(() => {
   const marquee = document.querySelectorAll(".marquee");
-
-  if (marquee.length === 0) return;
 
   marquee.forEach((item) => {
     const marqueeInner = item.querySelector(".marquee__inner");
-    const marqueeContent = marqueeInner.querySelector(".marquee__content");
-
-    if (!marqueeContent) return;
-
-    // Duration (convert to number)
-    const duration = Number(item.getAttribute("data-marquee-duration")) || 30;
-
     // Marquee animation
     const marqueeContentAll =
       marqueeInner.querySelectorAll(".marquee__content");
@@ -41,15 +32,11 @@ const init = () => {
       gsap.to(element, {
         x: "-101%",
         repeat: -1,
-        duration: duration,
+        duration: props.duration,
         ease: "linear",
       });
     });
   });
-};
-
-onMounted(() => {
-  init();
 });
 </script>
 
@@ -59,6 +46,7 @@ onMounted(() => {
       <div
         v-if="variation === 'logoMarquee'"
         class="marquee__content flex items-center"
+        v-for="i in 3"
       >
         <c-picture
           v-for="(item, index) in items"
@@ -75,6 +63,7 @@ onMounted(() => {
       <div
         v-if="variation === 'default'"
         class="marquee__content text-[8.46vw] whitespace-nowrap"
+        v-for="i in 3"
       >
         {{ text }}
       </div>

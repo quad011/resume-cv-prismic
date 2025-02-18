@@ -38,31 +38,35 @@ onMounted(() => {});
 
 <template>
   <div id="experience" class="works my-10 lg:my-16 relative overflow-hidden">
-    <div class="flex items-center justify-between mb-5 lg:mb-10 px-4 lg:px-16">
+    <div class="flex justify-between mb-5 lg:mb-10 px-4 lg:px-16">
       <!-- TITLE -->
-      <h2 v-html="title" class="text-32 lg:text-40 mb-4 lg:mb-10" />
+      <c-animated-element :fromY="50" :toY="0">
+        <h2 v-html="title" class="text-32 lg:text-40 mb-4 lg:mb-10" />
+      </c-animated-element>
       <!-- END :: TITLE -->
 
       <!-- NAVIGATION -->
-      <div class="flex items-center">
-        <div
-          @click="prev"
-          class="arrow w-[1.5rem] lg:w-[2.5rem] prev cursor-pointer"
-        >
-          <a-arrow
-            class="w-10 lg:w-14 h-10 lg:h-14 p-3 rotate-90 stroke-black"
-          />
-        </div>
+      <c-animated-element :fromY="50" :toY="0" :delay="0.1">
+        <div class="flex items-center">
+          <div
+            @click="prev"
+            class="arrow w-[1.5rem] lg:w-[2.5rem] prev cursor-pointer"
+          >
+            <a-arrow
+              class="w-10 lg:w-14 h-10 lg:h-14 p-3 rotate-90 stroke-black"
+            />
+          </div>
 
-        <div
-          @click="next"
-          class="arrow w-[1.5rem] lg:w-[2.5rem] next cursor-pointer"
-        >
-          <a-arrow
-            class="w-10 lg:w-14 h-10 lg:h-14 p-3 -rotate-90 stroke-black"
-          />
+          <div
+            @click="next"
+            class="arrow w-[1.5rem] lg:w-[2.5rem] next cursor-pointer"
+          >
+            <a-arrow
+              class="w-10 lg:w-14 h-10 lg:h-14 p-3 -rotate-90 stroke-black"
+            />
+          </div>
         </div>
-      </div>
+      </c-animated-element>
       <!-- END :: NAVIGATION -->
     </div>
 
@@ -89,13 +93,15 @@ onMounted(() => {});
         :key="index"
         class="flex h-full"
       >
-        <m-box
-          :title="item.item.data.title"
-          :period="item.item.data.period"
-          :links="item.item.data.links"
-          :position="item.item.data.position"
-          :text="item.item.data.text"
-        />
+        <c-animated-element :fromY="50" :toY="0" :delay="index * 0.2">
+          <m-box
+            :title="item.item.data.title"
+            :period="item.item.data.period"
+            :links="item.item.data.links"
+            :position="item.item.data.position"
+            :text="item.item.data.text"
+          />
+        </c-animated-element>
       </SwiperSlide>
     </Swiper>
     <!-- END :: SWIPER -->
