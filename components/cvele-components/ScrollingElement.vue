@@ -103,7 +103,7 @@ onUnmounted(() => {
 
 <template>
   <div class="scrolling-element" ref="main">
-    <div class="item1">
+    <div class="item">
       <slot />
     </div>
   </div>
