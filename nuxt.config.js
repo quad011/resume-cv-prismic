@@ -4,8 +4,26 @@ import componentsConfig from './config/nuxt/components';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
 
+  target: 'static',
+  generate: {
+    fallback: true
+  },
+  router: {
+    base: '/resume-cv-prismic/',
+    options: {
+      scrollBehaviorType: 'smooth'
+    }
+  },
+
+  nitro: {
+    prerender: {
+      crawlLinks: false, // Disable crawling for now
+      failOnError: false, // Avoid failing the build due to errors
+    }
+  },
+
   prismic: {
-    endpoint: apiEndpoint || repositoryName,
+    endpoint: 'https://resume-dc.cdn.prismic.io/api/v2',
     clientConfig: {
       routes: [
       // Resolves the Homepage document to "/"
@@ -21,25 +39,7 @@ export default defineNuxtConfig({
       ],
     }
   },
-
-  nitro: {
-    prerender: {
-      crawlLinks: true,
-      failOnError: false, 
-    },
-  },
-
-  target: 'static',
-  generate: {
-    fallback: true
-  },
-  router: {
-    base: '/resume-cv-prismic/',
-    options: {
-      scrollBehaviorType: 'smooth'
-    }
-  },
-
+  
   components: componentsConfig,
   
   css: ['@/assets/css/tailwind.scss', '@/assets/css/main.scss'],
