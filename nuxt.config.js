@@ -29,9 +29,9 @@ export default defineNuxtConfig({
     },
   },
 
-  mode: 'spa',
+  target: 'static',
   router: {
-    base: '/nuxt-gh-pages/',
+    base: '/resume-cv-prismic/',
     options: {
       scrollBehaviorType: 'smooth'
     }
