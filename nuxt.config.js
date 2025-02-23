@@ -30,7 +30,7 @@ export default defineNuxtConfig({
 
   components: componentsConfig,
   
-  css: ['@/assets/css/main.scss', '@/assets/css/tailwind.scss'],
+  css: ['@/assets/css/tailwind.scss', '@/assets/css/main.scss'],
 
   devtools: { enabled: false, suspensible: false },
 

@@ -34,6 +34,23 @@ interface AppDocumentData {
    */
   main_navigation: prismic.GroupField<
     Simplify<AppDocumentDataMainNavigationItem>
+  >;
+
+  /**
+   * Resume field in *App*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: app.resume
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  resume: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
   > /**
    * Footer Text field in *App*
    *

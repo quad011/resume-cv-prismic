@@ -6,7 +6,7 @@ export default {
 		plugin(function ({ addBase }) {
 			addBase({
 				html: { 
-          fontSize: ".9375vw", 
+          // fontSize: ".9375vw", 
           fontFamily: "RedHatDisplay, sans-serif",
           lineHeight: "1.1", }
 			})

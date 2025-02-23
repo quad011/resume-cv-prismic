@@ -10,16 +10,36 @@ function scrollToTop() {
     top: 0,
     behavior: "smooth",
   });
+
+  // Remove the hash from the URL after scrolling to the top
+  setTimeout(() => {
+    history.pushState(null, null, window.location.pathname);
+  }, 500); // Delay to allow smooth scrolling
 }
 
 const scrollToSection = (hash) => {
   const element = document.querySelector(hash);
   if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "center" });
+    const offset = 100;
+    const elementPosition =
+      element.getBoundingClientRect().top + window.scrollY;
+
+    window.scrollTo({
+      top: elementPosition - offset,
+      behavior: "smooth",
+    });
+
+    history.pushState(null, null, hash);
   }
 };
 
-onMounted(() => {});
+onMounted(() => {
+  window.addEventListener("scroll", () => {
+    if (window.scrollY === 0) {
+      history.pushState(null, null, window.location.pathname);
+    }
+  });
+});
 </script>
 
 <template>
@@ -31,7 +51,7 @@ onMounted(() => {});
   >
     <header
       :class="{ 'app-header--shrinked': scrollingStarted }"
-      class="app-header px-4 lg:px-16 py-4 lg:py-10 fixed top-0 left-0 w-full flex justify-between text-white mix-blend-difference z-[100] pointer-events-none transition-all duration-500"
+      class="app-header px-4 lg:px-16 py-4 lg:py-10 fixed top-0 left-0 w-full flex items-start justify-between text-white mix-blend-difference z-[100] pointer-events-none transition-all duration-500"
     >
       <!-- LOGO -->
       <nuxt-link
@@ -41,29 +61,37 @@ onMounted(() => {});
       >
         <img
           alt="logo"
-          class="logo w-[10vw] lg:w-[5vw] object-contain"
+          class="logo w-[10vw] lg:w-[5vw] object-contain transition-all duration-500"
           src="/assets/svg/logo.svg"
         />
       </nuxt-link>
       <!-- END :: LOGO -->
 
-      <div class="flex pointer-events-auto">
-        <nuxt-link
-          to="/"
-          @click.native="scrollToTop"
-          class="mr-5 text-14 lg:text-base"
-        >
-          <span v-html="'Home'" class="link" />
-        </nuxt-link>
+      <div class="flex items-center">
+        <div class="hidden lg:flex pointer-events-auto">
+          <nuxt-link
+            to="/"
+            @click.native="scrollToTop"
+            class="mr-5 text-14 lg:text-base"
+          >
+            <span v-html="'Home'" class="link" />
+          </nuxt-link>
 
-        <nuxt-link
-          v-for="item in appData?.data?.main_navigation"
-          :to="item.link.url"
-          @click.prevent="scrollToSection(item.link.url)"
-          class="mr-5 last:mr-0 text-14 lg:text-base"
-        >
-          <span v-html="item.link.text" class="link" />
-        </nuxt-link>
+          <nuxt-link
+            v-for="item in appData?.data?.main_navigation"
+            :to="item.link.url"
+            @click.prevent="scrollToSection(item.link.url)"
+            class="mr-5 last:mr-0 text-14 lg:text-base"
+          >
+            <span v-html="item.link.text" class="link" />
+          </nuxt-link>
+        </div>
+
+        <a-button
+          :title="appData?.data?.resume?.text"
+          :linkUrl="appData?.data?.resume?.url"
+          class="lg:ml-5"
+        />
       </div>
       <!-- <nuxt-link :to="{ path: '/', hash: "" }">Home</nuxt-link> -->
     </header>
@@ -73,9 +101,11 @@ onMounted(() => {});
 <style lang="scss" scoped>
 .app-header {
   &--shrinked {
-    @apply px-5 py-5;
-    .logo {
-      @apply lg:w-[3vw];
+    @screen lg {
+      @apply px-5 py-5;
+      .logo {
+        @apply lg:w-[3vw];
+      }
     }
   }
 }

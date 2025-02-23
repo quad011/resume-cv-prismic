@@ -27,13 +27,16 @@ onMounted(() => {});
 </script>
 
 <template>
-  <div id="projects" class="works px-4 lg:px-16 my-10 lg:my-16 relative">
+  <div
+    id="projects"
+    class="works px-4 lg:px-16 my-10 lg:my-16 relative overflow-hidden"
+  >
     <!-- <h2 v-html="caption" class="text-32 lg:text-40 mb-4 lg:mb-10" /> -->
     <div class="flex flex-wrap -mx-4">
       <div
         v-for="(item, index) in itemsArray"
         :key="index"
-        class="px-4 w-full sm:w-1/2 xl:w-1/3 mb-10 lg:mb-20 [&:nth-last-child(-n+3)] flex flex-col h-full"
+        class="px-4 w-full sm:w-1/2 xl:w-1/3 mb-10 lg:mb-20 lg:[&:nth-last-child(-n+3)]:mb-0 flex flex-col h-full"
       >
         <c-animated-element
           :delay="index / 10"

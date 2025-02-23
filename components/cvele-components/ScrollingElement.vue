@@ -55,16 +55,20 @@ gsap.registerPlugin(ScrollTrigger);
 const main = ref(null);
 let ctx = null;
 
-onMounted(() => {
+onMounted(async () => {
+  await nextTick();
   ctx = gsap.context((self) => {
     const items = self.selector(".item");
 
     items.forEach((item) => {
-      // Reset all values
+      item.style.transform = "none";
       gsap.set(item, {
-        x: "0px",
-        y: "0px",
-        clearProps: "all",
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotation: 0,
+        clearProps: "transform", // Clears inline styles if needed
+        force3D: true, // Forces GPU acceleration to avoid flickering
       });
 
       gsap.fromTo(
@@ -73,6 +77,7 @@ onMounted(() => {
           x: props.fromX,
           y: props.fromY,
           scale: props.fromScale,
+          immediateRender: false,
         },
         {
           x: props.toX,
@@ -81,6 +86,7 @@ onMounted(() => {
           scale: props.toScale,
           immediateRender: true,
           delay: props.delay,
+          duration: 10,
           scrollTrigger: {
             trigger: item,
             start: props.startPosition,
@@ -113,6 +119,7 @@ onUnmounted(() => {
 .scrolling-element {
   position: relative;
   .item {
+    will-change: transform;
   }
 }
 </style>

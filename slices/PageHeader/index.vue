@@ -6,5 +6,8 @@ const { getPrimary, items } = useSlice(props.slice);
 </script>
 
 <template>
-  <o-page-header :title="getPrimary('title')" />
+  <o-page-header
+    :title="getPrimary('title')"
+    :caption="getPrimary('caption')"
+  />
 </template>

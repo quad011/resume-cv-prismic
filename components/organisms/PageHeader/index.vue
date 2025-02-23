@@ -1,7 +1,12 @@
 <script setup>
+import { PrismicRichText } from "#components";
+
 const props = defineProps({
   title: {
     type: String,
+  },
+  caption: {
+    type: Array,
   },
 });
 </script>
@@ -12,27 +17,24 @@ const props = defineProps({
   >
     <c-animated-element :fromY="-50" :toY="0">
       <c-scrolling-element
-        fromY="0"
-        :toY="'-20vw'"
-        startPosition="bottom bottom"
-        endPosition="bottom top"
+        fromX="0"
+        :toX="'100vw'"
+        startPosition="0"
+        endPosition="top center"
         :fromScale="1"
         :toScale="0"
+        class="text-black text-20 lg:text-40 whitespace-nowrap !font-bold uppercase"
       >
-        <p
-          v-html="`Hi, I am`"
-          class="text-black text-40 whitespace-nowrap font-bold uppercase"
-        ></p>
+        <PrismicRichText :field="caption" />
       </c-scrolling-element>
     </c-animated-element>
 
     <c-animated-element :fromY="50" :toY="0">
       <c-scrolling-element
-        :fromY="0"
-        :toY="'-30vw'"
-        startPosition="bottom bottom"
+        :fromX="0"
+        :toX="'-100vw'"
+        startPosition="0"
         endPosition="bottom top"
-        :delay="10"
       >
         <h1
           v-html="title"

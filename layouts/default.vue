@@ -19,7 +19,7 @@ onMounted(() => {});
     <!-- END :: PAGE CONTENT -->
 
     <!-- INTRO -->
-    <!-- <t-gsap
+    <t-gsap
       :notAbsolute="true"
       :from="{}"
       :leave_to="{
@@ -30,7 +30,7 @@ onMounted(() => {});
       }"
     >
       <intro v-model:introVisible="introVisible" v-if="introVisible" />
-    </t-gsap> -->
+    </t-gsap>
     <!-- END :: INTRO -->
   </div>
 </template>

@@ -25,6 +25,17 @@
             }
           }
         }
+      },
+      "resume": {
+        "type": "Link",
+        "config": {
+          "label": "Resume",
+          "placeholder": "",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
       }
     },
     "Footer": {

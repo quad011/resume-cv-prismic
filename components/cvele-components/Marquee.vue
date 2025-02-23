@@ -51,7 +51,7 @@ onMounted(() => {
         <c-picture
           v-for="(item, index) in items"
           :key="index"
-          class="w-auto h-[12vw] lg:h-[6vw] object-contain lg:mx-10"
+          class="w-auto h-[12vw] lg:h-[6vw] object-contain mx-5 lg:mx-10"
           innerClass=""
           :useOriginalRatio="true"
           :image="item.image"

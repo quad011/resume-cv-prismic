@@ -1,7 +1,6 @@
-@use "./global.scss" as *;
-@use "./typography.scss" as *;
 @use "./link.scss" as *;
-// @use "./tailwind.scss" as *;
+@use "./typography.scss" as *;
+@use "./global.scss" as *;
 
 @font-face {
     font-family: "RedHatDisplay";

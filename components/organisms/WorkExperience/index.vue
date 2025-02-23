@@ -80,18 +80,15 @@ onMounted(() => {});
       :loop="true"
       :delay="0.1"
       :breakpoints="{
-        slidesPerView: 2,
-        spaceBetween: '10',
-        1024: {
-          slidesPerView: 2.3,
-          spaceBetween: '50',
-        },
+        slidesPerView: 1,
+        spaceBetween: 10,
+        1024: { slidesPerView: 2.3, spaceBetween: 50 },
       }"
     >
       <SwiperSlide
         v-for="(item, index) in items"
         :key="index"
-        class="flex h-full"
+        class="flex h-full pr-5 lg:pr-0"
       >
         <c-animated-element :fromY="50" :toY="0" :delay="index * 0.2">
           <m-box

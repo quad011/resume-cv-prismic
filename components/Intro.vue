@@ -13,7 +13,7 @@ const computedProgress = computed(() => {
 onMounted(() => {
   gsap.to(progress.value, {
     value: 100,
-    ease: "power1.inOut",
+    ease: "power2.inOut",
     duration: 2,
     onComplete: () => {
       console.log("animation ended");
@@ -38,17 +38,21 @@ onMounted(() => {
       <div
         :style="{
           transform: `translateX(-${100 - progress.value}%) `,
+          opacity: `${progress.value}`,
         }"
       >
-        <h1 class="text-92 text-black text-bold">Welcome</h1>
+        <h1 class="text-24 lg:text-92 text-black text-bold">Welcome</h1>
       </div>
 
       <div
         :style="{
           transform: `translateX(${100 - progress.value}%) `,
+          opacity: `${progress.value}`,
         }"
       >
-        <h1 class="text-92 text-black text-bold">to my resume</h1>
+        <h1 class="text-24 lg:text-92 text-black text-bold">
+          &nbsp;to my resume
+        </h1>
       </div>
     </div>
   </div>
