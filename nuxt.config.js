@@ -30,6 +30,9 @@ export default defineNuxtConfig({
   },
 
   target: 'static',
+  generate: {
+    fallback: true
+  },
   router: {
     base: '/resume-cv-prismic/',
     options: {

@@ -1,6 +1,6 @@
 {
   "apiEndpoint": "https://resume-dc.cdn.prismic.io/api/v2",
-  "repositoryName": "resume-dc",
+  "repositoryName": "resume-cv-prismic",
   "adapter": "@slicemachine/adapter-nuxt",
   "libraries": ["./slices"],
   "localSliceSimulatorURL": "http://localhost:3000/slice-simulator"
