@@ -22,7 +22,16 @@ export default defineNuxtConfig({
     }
   },
 
+  nitro: {
+    prerender: {
+      crawlLinks: true,
+      failOnError: false, 
+    },
+  },
+
+  mode: 'spa',
   router: {
+    base: '/nuxt-gh-pages/',
     options: {
       scrollBehaviorType: 'smooth'
     }

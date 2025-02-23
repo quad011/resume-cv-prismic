@@ -10,7 +10,8 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "slicemachine": "start-slicemachine"
+    "slicemachine": "start-slicemachine",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@nuxt/image": "^1.9.0",
@@ -32,6 +33,7 @@
     "@nuxtjs/tailwindcss": "^6.13.1",
     "@slicemachine/adapter-nuxt": "^0.3.66",
     "@tailwindcss/typography": "^0.5.16",
+    "gh-pages": "^6.3.0",
     "slice-machine-ui": "^2.12.3"
   }
 }
