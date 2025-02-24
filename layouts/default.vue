@@ -20,7 +20,7 @@ onMounted(() => {});
     <slot />
     <!-- END :: PAGE CONTENT -->
 
-    <t-gsap
+    <!-- <t-gsap
       :notAbsolute="true"
       :leave_to="{ scale: 0.9, opacity: 0, duration: 0.4 }"
       :from="{ opacity: 0 }"
@@ -36,7 +36,7 @@ onMounted(() => {});
         v-if="isMenuOpen"
         :menuOpen="isMenuOpen"
       />
-    </t-gsap>
+    </t-gsap> -->
 
     <!-- INTRO -->
     <t-gsap
