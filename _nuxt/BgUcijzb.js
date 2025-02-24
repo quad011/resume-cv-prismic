@@ -1,1 +1,0 @@
-import{_ as e,c as r,o}from"./DOHmo-ZN.js";const n={},c={class:"spinner border-4 border-purple rounded-[50%] border-b-transparent inline-block box-border w-[48px] h-[48px]"};function t(s,_){return o(),r("span",c)}const d=e(n,[["render",t],["__scopeId","data-v-d64f7eb9"]]);export{d as default};
