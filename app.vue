@@ -5,7 +5,7 @@ import appConfig from "~/config/app";
 
 const appStore = useAppStore();
 
-const route = useRoute();
+// const route = useRoute();
 
 const pageTitle = ref("Default Title");
 

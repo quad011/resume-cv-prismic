@@ -6,8 +6,11 @@ export default defineNuxtConfig({
   target: 'static',
   
   generate: {
-    fallback: false,
+    fallback: 'index.html',
+    dir: '.output/public',
   },
+
+  ssr: false,
 
   router: {
     base: '/resume-cv-prismic/',
@@ -15,7 +18,7 @@ export default defineNuxtConfig({
       scrollBehaviorType: 'smooth'
     }
   },
-  
+
   prismic: {
     endpoint: apiEndpoint,
     clientConfig: {
