@@ -3,14 +3,14 @@ import componentsConfig from './config/nuxt/components';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  target: 'static',
+  // target: 'static',
   
-  generate: {
-    fallback: 'index.html',
-    dir: '.output/public',
-  },
+  // generate: {
+  //   fallback: 'index.html',
+  //   dir: '.output/public',
+  // },
 
-  ssr: false,
+  // ssr: false,
 
   router: {
     base: '/resume-cv-prismic/',
@@ -44,7 +44,6 @@ export default defineNuxtConfig({
     }
   },
 
-
   components: componentsConfig,
   
   css: ['@/assets/css/tailwind.scss', '@/assets/css/main.scss'],
@@ -56,11 +55,12 @@ export default defineNuxtConfig({
   ],
   
   modules: [
-    "@nuxtjs/prismic", 
+    "@nuxtjs/prismic",
     "@nuxtjs/tailwindcss",
     "@pinia/nuxt",
     'nuxt-font-loader',
     '@nuxt/image',
+    '@nuxtjs/device',
   ],
   
   fontLoader: {
@@ -73,6 +73,5 @@ export default defineNuxtConfig({
     ]
   },
 
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: '2025-02-24',
 })
-  

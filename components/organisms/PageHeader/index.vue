@@ -1,5 +1,5 @@
 <script setup>
-import { PrismicRichText } from "#components";
+import { PrismicRichText } from '#components';
 
 const props = defineProps({
   title: {
@@ -20,10 +20,11 @@ const props = defineProps({
         fromX="0"
         :toX="'100vw'"
         startPosition="0"
-        endPosition="top center"
+        endPosition="top top"
         :fromScale="1"
         :toScale="0"
         class="text-black text-20 lg:text-40 whitespace-nowrap !font-bold uppercase"
+        style="will-change: transform, opacity"
       >
         <PrismicRichText :field="caption" />
       </c-scrolling-element>

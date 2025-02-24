@@ -1,7 +1,7 @@
 <script setup>
-import { ref, onMounted, nextTick } from "vue";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ref, onMounted, nextTick } from 'vue';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const props = defineProps({
   fromY: { type: [String, Number], default: 0 },
@@ -29,13 +29,13 @@ onMounted(async () => {
         x: props.toX,
         duration: 1,
         delay: props.delay,
-        ease: "power2.out",
+        ease: 'power2.out',
         scrollTrigger: {
           trigger: animatedElement.value,
-          start: "top bottom",
-          toggleActions: "play none none reset",
+          start: 'top bottom',
+          toggleActions: 'play none none reset',
         },
-      }
+      },
     );
   }
 });

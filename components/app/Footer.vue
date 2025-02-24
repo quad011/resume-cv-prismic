@@ -1,6 +1,6 @@
 <script setup>
-import { useAppStore } from "@/stores/app";
-import { storeToRefs } from "pinia";
+import { useAppStore } from '@/stores/app';
+import { storeToRefs } from 'pinia';
 
 const appStore = useAppStore();
 const { appData } = storeToRefs(appStore);
@@ -12,7 +12,7 @@ onMounted(() => {
 
 <template>
   <footer class="app-footer overflow-hidden uppercase border-t border-black">
-    <div class="px-4 py-5 lg:p-16 flex items-center justify-between">
+    <div class="px-4 py-8 lg:p-16 flex items-center justify-between">
       <div class="flex items-center justify-between w-full">
         <c-animated-element :fromY="50" :toY="0">
           <p class="text-14 lg:text-base" v-html="appData?.data?.footer_text" />

@@ -1,6 +1,6 @@
 <script setup>
-import animationConfig from "./animationConfig";
-import { PrismicRichText } from "@prismicio/vue";
+import animationConfig from './animationConfig';
+import { PrismicRichText } from '@prismicio/vue';
 const props = defineProps({
   title: {
     type: String,
@@ -18,7 +18,7 @@ const props = defineProps({
 
 const itemsArray = Object.values(props.items);
 itemsArray.splice(1, 0, {
-  type: "text",
+  type: 'text',
   caption: props.caption,
   text: props.text,
 });

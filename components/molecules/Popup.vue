@@ -1,6 +1,6 @@
 <script setup>
-import { useScrollLock } from "@vueuse/core";
-import { onMounted } from "vue";
+import { useScrollLock } from '@vueuse/core';
+import { onMounted } from 'vue';
 const props = defineProps({
   title: {
     type: String,
@@ -28,7 +28,7 @@ onMounted(() => {
 
 <template>
   <div
-    class="popup fixed left-0 top-0 w-full h-full flex flex-wrap px-4 sm:px-16 py-20"
+    class="popup fixed left-0 top-0 w-full h-full flex flex-wrap px-4 sm:px-16 py-20 text-white"
   >
     <h3
       v-if="title"

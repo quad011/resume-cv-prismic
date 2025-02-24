@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from "vue";
+import { ref, onMounted, onUnmounted, nextTick } from 'vue';
 
 const scrollProgress = ref(0);
 const transitionEnabled = ref(true);
@@ -25,11 +25,11 @@ const updateScroll = () => {
 };
 
 onMounted(() => {
-  window.addEventListener("scroll", updateScroll);
+  window.addEventListener('scroll', updateScroll);
 });
 
 onUnmounted(() => {
-  window.removeEventListener("scroll", updateScroll);
+  window.removeEventListener('scroll', updateScroll);
 });
 </script>
 

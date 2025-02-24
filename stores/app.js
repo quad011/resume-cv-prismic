@@ -9,7 +9,8 @@ export const useAppStore = defineStore("app", {
     theme: "light",
     appData: {},
     prismicClient: null,
-    fontsLoaded: false
+    fontsLoaded: false,
+    isMenuOpen: false
   }),
 
   getters: {

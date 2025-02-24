@@ -1,31 +1,31 @@
 <script setup>
-import { gsap } from "gsap";
+import { gsap } from 'gsap';
 
 const progress = ref({ value: 0 });
-const emit = defineEmits(["update:introVisible"]);
+const emit = defineEmits(['update:introVisible']);
 
 const computedProgress = computed(() => {
   if (progress.value.value === 0) return [0];
-  return `${Math.round(progress.value.value)}`.split("");
+  return `${Math.round(progress.value.value)}`.split('');
 });
 
 // Use GSAP animation
 onMounted(() => {
   gsap.to(progress.value, {
     value: 100,
-    ease: "power2.inOut",
+    ease: 'power2.inOut',
     duration: 2,
     onComplete: () => {
-      console.log("animation ended");
+      // console.log('animation ended');
 
       setTimeout(() => {
-        emit("update:introVisible", false);
+        emit('update:introVisible', false);
       }, 600);
     },
   });
 
   setTimeout(() => {
-    console.log("progress:", computedProgress.value);
+    // console.log('progress:', computedProgress.value);
   }, 1000);
 });
 </script>
@@ -41,7 +41,9 @@ onMounted(() => {
           opacity: `${progress.value}`,
         }"
       >
-        <h1 class="text-24 lg:text-92 text-black text-bold">Welcome</h1>
+        <h1 class="text-24 sm:text-40 lg:text-92 text-black text-bold">
+          Welcome
+        </h1>
       </div>
 
       <div
@@ -50,7 +52,7 @@ onMounted(() => {
           opacity: `${progress.value}`,
         }"
       >
-        <h1 class="text-24 lg:text-92 text-black text-bold">
+        <h1 class="text-24 sm:text-40 lg:text-92 text-black text-bold">
           &nbsp;to my resume
         </h1>
       </div>

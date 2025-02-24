@@ -1,14 +1,16 @@
 <script setup>
 const appStore = useAppStore();
-const { appData, fontsLoaded } = storeToRefs(appStore);
+const { appData, fontsLoaded, isMenuOpen } = storeToRefs(appStore);
 
 const scrollingStore = useScrollingStore();
 const { navigationVisible, scrollingStarted } = storeToRefs(scrollingStore);
 
+const { isMobileOrTablet, isDesktop } = useDevice();
+
 function scrollToTop() {
   window.scroll({
     top: 0,
-    behavior: "smooth",
+    behavior: 'smooth',
   });
 
   // Remove the hash from the URL after scrolling to the top
@@ -17,7 +19,7 @@ function scrollToTop() {
   }, 500); // Delay to allow smooth scrolling
 }
 
-const scrollToSection = (hash) => {
+const scrollToSection = hash => {
   const element = document.querySelector(hash);
   if (element) {
     const offset = 100;
@@ -26,7 +28,7 @@ const scrollToSection = (hash) => {
 
     window.scrollTo({
       top: elementPosition - offset,
-      behavior: "smooth",
+      behavior: 'smooth',
     });
 
     history.pushState(null, null, hash);
@@ -34,7 +36,7 @@ const scrollToSection = (hash) => {
 };
 
 onMounted(() => {
-  window.addEventListener("scroll", () => {
+  window.addEventListener('scroll', () => {
     if (window.scrollY === 0) {
       history.pushState(null, null, window.location.pathname);
     }
@@ -50,7 +52,9 @@ onMounted(() => {
     ]"
   >
     <header
-      :class="{ 'app-header--shrinked': scrollingStarted }"
+      :class="{
+        'app-header--shrink': scrollingStarted,
+      }"
       class="app-header px-4 lg:px-16 py-4 lg:py-10 fixed top-0 left-0 w-full flex items-start justify-between text-white mix-blend-difference z-[100] pointer-events-none transition-all duration-500"
     >
       <!-- LOGO -->
@@ -61,7 +65,7 @@ onMounted(() => {
       >
         <img
           alt="logo"
-          class="logo w-[10vw] lg:w-[5vw] object-contain transition-all duration-500"
+          class="logo w-[12vw] sm:w-[10vw] lg:w-[5vw] object-contain transition-all duration-500"
           src="/assets/svg/logo.svg"
         />
       </nuxt-link>
@@ -92,8 +96,16 @@ onMounted(() => {
           :linkUrl="appData?.data?.resume?.url"
           class="lg:ml-5"
         />
+
+        <div class="flex justify-end lg:hidden ml-5">
+          <app-hamburger
+            class="flex justify-end mr-2 pointer-events-auto"
+            :isMenuOpen="isMenuOpen"
+            @click="isMenuOpen = !isMenuOpen"
+            @keydown.esc="isMenuOpen = false"
+          />
+        </div>
       </div>
-      <!-- <nuxt-link :to="{ path: '/', hash: "" }">Home</nuxt-link> -->
     </header>
   </div>
 </template>
