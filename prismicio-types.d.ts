@@ -295,46 +295,46 @@ interface PageHomeDocumentData {
   slices: prismic.SliceZone<PageHomeDocumentDataSlicesSlice> /**
    * Meta Title field in *Page: Home*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: page_home.meta_title
    * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */;
-  meta_title: prismic.RichTextField;
+  meta_title: prismic.KeyTextField;
 
   /**
    * Meta Description field in *Page: Home*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: page_home.meta_description
    * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  meta_description: prismic.RichTextField;
+  meta_description: prismic.KeyTextField;
 
   /**
    * OG Title field in *Page: Home*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: page_home.og_title
    * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  og_title: prismic.RichTextField;
+  og_title: prismic.KeyTextField;
 
   /**
    * OG Description field in *Page: Home*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: page_home.og_description
    * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  og_description: prismic.RichTextField;
+  og_description: prismic.KeyTextField;
 
   /**
    * OG Image field in *Page: Home*
