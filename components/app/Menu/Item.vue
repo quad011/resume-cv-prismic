@@ -1,7 +1,12 @@
 <script setup>
+const appStore = useAppStore();
+const { isMenuOpen } = storeToRefs(appStore);
+
 const props = defineProps({
   item: Object,
-  index: [Number, String],
+  index: {
+    type: [Number, String],
+  },
 });
 
 const scrollToSection = hash => {
@@ -17,6 +22,7 @@ const scrollToSection = hash => {
     });
 
     history.pushState(null, null, hash);
+    isMenuOpen.value = false;
   }
 };
 </script>

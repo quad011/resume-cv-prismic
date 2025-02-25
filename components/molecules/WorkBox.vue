@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 const props = defineProps({
   title: {
     type: String,
@@ -15,6 +15,9 @@ const props = defineProps({
   },
   techStack: {
     type: String,
+  },
+  videoPoster: {
+    type: Object,
   },
 });
 const openPopup = ref(false);
@@ -39,6 +42,8 @@ const playing = ref(false);
       :muted="true"
       :loop="true"
       class="aspect-[1.85]"
+      :forcePoster="true"
+      :posterUrl="videoPoster?.url"
     />
     <h3 v-if="title" v-html="title" class="text-18 lg:text-24 mt-2 lg:mt-3" />
   </div>

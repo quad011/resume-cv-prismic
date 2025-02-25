@@ -48,6 +48,7 @@ onMounted(() => {});
             :videoUrl="item?.video?.url"
             :projectUrl="item?.project_url"
             :techStack="item?.tech_stack"
+            :videoPoster="item?.video_poster"
           />
         </c-animated-element>
 

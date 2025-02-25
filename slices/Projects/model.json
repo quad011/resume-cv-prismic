@@ -67,6 +67,14 @@
                   "label": "Tech Stack",
                   "placeholder": ""
                 }
+              },
+              "video_poster": {
+                "type": "Image",
+                "config": {
+                  "label": "Video Poster",
+                  "constraint": {},
+                  "thumbnails": []
+                }
               }
             }
           }

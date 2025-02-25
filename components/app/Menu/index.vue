@@ -2,13 +2,14 @@
 import { useScrollLock } from '@vueuse/core';
 
 const appStore = useAppStore();
-const { appData } = storeToRefs(appStore);
+const { appData, isMenuOpen } = storeToRefs(appStore);
 
 function scrollToTop() {
   window.scroll({
     top: 0,
     behavior: 'smooth',
   });
+  isMenuOpen.value = false;
 }
 
 const isLocked = useScrollLock(document.body);

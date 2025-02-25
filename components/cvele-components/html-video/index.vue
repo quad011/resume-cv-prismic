@@ -1,23 +1,23 @@
 <script setup>
-import { ref, watch } from "vue";
-import _props from "./props";
+import { ref, watch } from 'vue';
+import _props from './props';
 const props = defineProps(_props);
 
 const video = ref(null);
-let videoPoster = ref("");
+let videoPoster = ref('');
 
 if (props.forcePoster) {
   videoPoster.value = props.posterUrl;
 }
 
-const onClick = (e) => {};
-const onCanPlay = (e) => {};
-const onSeeking = (e) => {};
+const onClick = e => {};
+const onCanPlay = e => {};
+const onSeeking = e => {};
 
-const emit = defineEmits(["update:playing", "update:time"]);
+const emit = defineEmits(['update:playing', 'update:time']);
 
 // HANDLE TIME UPDATES
-const onTimeupdate = (e) => {
+const onTimeupdate = e => {
   if (!video.value) {
     return;
   }
@@ -25,7 +25,7 @@ const onTimeupdate = (e) => {
   // emit("update:time", video.value.currentTime)
 };
 
-const seekTo = (time) => {
+const seekTo = time => {
   video.value.currentTime = time;
 };
 
@@ -35,20 +35,20 @@ defineExpose({
 
 // HANDLE PLAYING
 if (props.autoplay) {
-  emit("update:playing", true);
+  emit('update:playing', true);
 }
 
-const onPause = (e) => {
+const onPause = e => {
   // console.log("onPause", e)
-  emit("update:playing", false);
+  emit('update:playing', false);
 };
 
-const onPlay = (e) => {
-  emit("update:playing", true);
+const onPlay = e => {
+  emit('update:playing', true);
 };
 
-const onCantplay = (e) => {
-  emit("update:playing", false);
+const onCantplay = e => {
+  emit('update:playing', false);
   videoPoster.value = props.posterUrl;
   // console.warn(`can't autoplay`, props.src)
 };
@@ -71,7 +71,7 @@ const pauseVideo = () => {
 // toggle playing when playing prop changes
 watch(
   () => props.playing,
-  (val) => {
+  val => {
     // playing.value = val
 
     if (val) {
@@ -79,7 +79,7 @@ watch(
     } else {
       pauseVideo();
     }
-  }
+  },
 );
 </script>
 
@@ -93,7 +93,7 @@ watch(
     @seeking="onSeeking"
     @timeupdate="onTimeupdate"
     @play="onPlay"
-    :preload="preload"
+    :preload="preload || 'auto'"
     :playsinline="playsinline"
     :autoplay="autoplay"
     :poster="videoPoster"
@@ -110,5 +110,10 @@ watch(
   width: 100%;
   height: 100%;
   // object-fit: cover;
+  &[poster] {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
 }
 </style>
