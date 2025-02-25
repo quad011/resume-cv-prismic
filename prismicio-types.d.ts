@@ -261,6 +261,7 @@ export type PageDefaultDocument<Lang extends string = string> =
   >;
 
 type PageHomeDocumentDataSlicesSlice =
+  | MoreProjectsSlice
   | WorkExperienceSlice
   | ScrollingTextSlice
   | MarqueeWrapperSlice
@@ -294,35 +295,57 @@ interface PageHomeDocumentData {
   slices: prismic.SliceZone<PageHomeDocumentDataSlicesSlice> /**
    * Meta Title field in *Page: Home*
    *
-   * - **Field Type**: Text
-   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
    * - **API ID Path**: page_home.meta_title
    * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */;
-  meta_title: prismic.KeyTextField;
+  meta_title: prismic.RichTextField;
 
   /**
    * Meta Description field in *Page: Home*
    *
-   * - **Field Type**: Text
-   * - **Placeholder**: A brief summary of the page
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
    * - **API ID Path**: page_home.meta_description
    * - **Tab**: SEO & Metadata
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
-  meta_description: prismic.KeyTextField;
+  meta_description: prismic.RichTextField;
 
   /**
-   * Meta Image field in *Page: Home*
+   * OG Title field in *Page: Home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_home.og_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  og_title: prismic.RichTextField;
+
+  /**
+   * OG Description field in *Page: Home*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_home.og_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  og_description: prismic.RichTextField;
+
+  /**
+   * OG Image field in *Page: Home*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: page_home.meta_image
+   * - **API ID Path**: page_home.og_image
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
    */
-  meta_image: prismic.ImageField<never>;
+  og_image: prismic.ImageField<never>;
 }
 
 /**
@@ -479,6 +502,76 @@ type MarqueeWrapperSliceVariation =
 export type MarqueeWrapperSlice = prismic.SharedSlice<
   'marquee_wrapper',
   MarqueeWrapperSliceVariation
+>;
+
+/**
+ * Item in *MoreProjects → Default → Primary → Items*
+ */
+export interface MoreProjectsSliceDefaultPrimaryItemsItem {
+  /**
+   * Link field in *MoreProjects → Default → Primary → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: more_projects.default.primary.items[].link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Primary content in *MoreProjects → Default → Primary*
+ */
+export interface MoreProjectsSliceDefaultPrimary {
+  /**
+   * Title field in *MoreProjects → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: more_projects.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Items field in *MoreProjects → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: more_projects.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<Simplify<MoreProjectsSliceDefaultPrimaryItemsItem>>;
+}
+
+/**
+ * Default variation for MoreProjects Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MoreProjectsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<MoreProjectsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *MoreProjects*
+ */
+type MoreProjectsSliceVariation = MoreProjectsSliceDefault;
+
+/**
+ * MoreProjects Shared Slice
+ *
+ * - **API ID**: `more_projects`
+ * - **Description**: MoreProjects
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MoreProjectsSlice = prismic.SharedSlice<
+  'more_projects',
+  MoreProjectsSliceVariation
 >;
 
 /**
@@ -820,6 +913,11 @@ declare module '@prismicio/client' {
       MarqueeWrapperSliceVariation,
       MarqueeWrapperSliceDefault,
       MarqueeWrapperSliceLogoMarquee,
+      MoreProjectsSlice,
+      MoreProjectsSliceDefaultPrimaryItemsItem,
+      MoreProjectsSliceDefaultPrimary,
+      MoreProjectsSliceVariation,
+      MoreProjectsSliceDefault,
       PageHeaderSlice,
       PageHeaderSliceDefaultPrimary,
       PageHeaderSliceVariation,

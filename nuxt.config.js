@@ -12,6 +12,10 @@ export default defineNuxtConfig({
 
   ssr: false,
 
+  imports: {
+    dirs: ['utils'],
+  },
+
   router: {
     base: '/resume-cv-prismic/',
     options: {

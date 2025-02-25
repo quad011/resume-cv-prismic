@@ -1,13 +1,12 @@
 <script setup>
-import { useAppStore } from "@/stores/app";
-import { useRoute } from "vue-router";
-import appConfig from "~/config/app";
+import { useAppStore } from '@/stores/app';
+import appConfig from '~/config/app';
 
 const appStore = useAppStore();
 
 // const route = useRoute();
 
-const pageTitle = ref("Default Title");
+const pageTitle = ref('Default Title');
 
 const showEl = ref(false);
 
@@ -19,23 +18,23 @@ const onScroll = () => {
 };
 
 onMounted(() => {
-  window.addEventListener("scroll", onScroll);
+  window.addEventListener('scroll', onScroll);
 });
 
 onUnmounted(() => {
-  window.removeEventListener("scroll", onScroll);
+  window.removeEventListener('scroll', onScroll);
 });
 
 function scrollToTop() {
   window.scroll({
     top: 0,
-    behavior: "smooth",
+    behavior: 'smooth',
   });
 }
 
 useHead({
   htmlAttrs: {
-    lang: "en",
+    lang: 'en',
   },
   title: `${appConfig.site_name} - ${pageTitle.value}`,
 });

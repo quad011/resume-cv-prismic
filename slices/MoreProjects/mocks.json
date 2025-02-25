@@ -1,0 +1,36 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"link",
+								{
+									"key": "b0767262-1f9a-435a-9354-38dc073efb56",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://twitter.com",
+										"text": "settlers"
+									}
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "stepped",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

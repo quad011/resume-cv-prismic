@@ -1,22 +1,22 @@
 <script setup>
-import { components } from "~/slices";
-import { usePrismic } from "@prismicio/vue";
-import { useAsyncData, createError } from "#imports";
-import fetchLinks from "@/config/pageFetchLinks";
+import { components } from '~/slices';
+import { usePrismic } from '@prismicio/vue';
+import { useAsyncData, createError } from '#imports';
+import fetchLinks from '@/config/pageFetchLinks';
 
 const { client } = usePrismic();
 
-const { data: page } = await useAsyncData("page_home", async () => {
+const { data: page } = await useAsyncData('page_home', async () => {
   try {
     // Fetch the "page_home" document by UID
-    const document = await client.getByUID("page_home", "home", {
-      cache: "no-store",
+    const document = await client.getByUID('page_home', 'home', {
+      cache: 'no-store',
       fetchLinks,
     });
 
     if (!document) {
       // console.error("Prismic returned null for 'page_home'");
-      throw createError({ statusCode: 404, message: "Page not found" });
+      throw createError({ statusCode: 404, message: 'Page not found' });
     }
 
     // console.log("Prismic response:", document);
@@ -25,10 +25,12 @@ const { data: page } = await useAsyncData("page_home", async () => {
     // console.error("Error fetching Prismic data:", err);
     throw createError({
       statusCode: 404,
-      message: err.message || "Page not found",
+      message: err.message || 'Page not found',
     });
   }
 });
+
+usePageMeta(page);
 
 // console.log("page.value:", page.value);
 // console.log("error:", error);
