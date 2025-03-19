@@ -1,8 +1,8 @@
 <script setup>
-import { Swiper, SwiperSlide } from "swiper/vue";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const props = defineProps({
   title: {
@@ -14,14 +14,10 @@ const props = defineProps({
 });
 
 const swiper = ref(0);
-const swiperTwo = ref(0);
 const currentIndex = ref(0);
 
-const onSwiper = (swiperSlider) => {
+const onSwiper = swiperSlider => {
   swiper.value = swiperSlider;
-};
-const onSwiperTwo = (swiperSlidertwo) => {
-  swiperTwo.value = swiperSlidertwo;
 };
 const next = () => {
   swiper.value.slideNext();
@@ -29,7 +25,7 @@ const next = () => {
 const prev = () => {
   swiper.value.slidePrev();
 };
-const onSlideChange = (index) => {
+const onSlideChange = index => {
   currentIndex.value = index.activeIndex;
 };
 

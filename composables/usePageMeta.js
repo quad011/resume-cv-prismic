@@ -14,15 +14,13 @@ export default function usePageMeta(page) {
     _get(page.value, `${prefix}meta_title`) ||
     _get(page.value, `${prefix}title`);
 
-  console.log('titleContent', titleContent);
-
-  console.log(
-    'PREFIX:',
-    prefix,
-    titleContent,
-    _get(page.value, `${prefix}meta_title`),
-    _get(page.value, `${prefix}title`),
-  );
+  // console.log(
+  //   'PREFIX:',
+  //   prefix,
+  //   titleContent,
+  //   _get(page.value, `${prefix}meta_title`),
+  //   _get(page.value, `${prefix}title`),
+  // );
 
   const title = `${appConfig.site_name} | ${stripHtml(titleContent)}`;
 

@@ -1,5 +1,5 @@
 <script setup>
-import gsap from "gsap";
+import gsap from 'gsap';
 
 const props = defineProps({
   items: {
@@ -17,23 +17,26 @@ const props = defineProps({
   duration: {
     type: Number,
   },
+  innerClass: {
+    type: String,
+  },
 });
 
 onMounted(() => {
-  const marquee = document.querySelectorAll(".marquee");
+  const marquee = document.querySelectorAll('.marquee');
 
-  marquee.forEach((item) => {
-    const marqueeInner = item.querySelector(".marquee__inner");
+  marquee.forEach(item => {
+    const marqueeInner = item.querySelector('.marquee__inner');
     // Marquee animation
     const marqueeContentAll =
-      marqueeInner.querySelectorAll(".marquee__content");
+      marqueeInner.querySelectorAll('.marquee__content');
 
-    marqueeContentAll.forEach((element) => {
+    marqueeContentAll.forEach(element => {
       gsap.to(element, {
-        x: "-101%",
+        x: props.reversed ? '101%' : '-101%',
         repeat: -1,
         duration: props.duration,
-        ease: "linear",
+        ease: 'linear',
       });
     });
   });
@@ -62,7 +65,7 @@ onMounted(() => {
 
       <div
         v-if="variation === 'default'"
-        class="marquee__content text-[8.46vw] whitespace-nowrap"
+        :class="`marquee__content whitespace-nowrap ${innerClass}`"
         v-for="i in 3"
       >
         {{ text }}

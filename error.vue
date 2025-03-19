@@ -1,0 +1,34 @@
+<script setup>
+import { useHead } from '#imports';
+const error = useError();
+const props = defineProps({
+  error: Object,
+});
+
+const handleError = () => clearError({ redirect: '/' });
+
+useHead({
+  title: 'Aion - 404 Not Found',
+});
+</script>
+
+<template>
+  <div
+    class="error bg-white fixed left-0 top-0 w-full h-full flex flex-col flex-center"
+  >
+    <h1 class="flex flex-col items-center md:mb-5 lg:mb-0 whitespace-nowrap">
+      <c-animated-element :fromY="50" :toY="0">
+        <c-marquee
+          :duration="50"
+          :variation="'default'"
+          :text="'404 Page not found &nbsp;'"
+          class="text-92 md:text-180 lg:text-[67vw] font-medium"
+        />
+      </c-animated-element>
+    </h1>
+
+    <div class="fixed center mix-blend-difference">
+      <a-button title="Go Back" @click="handleError" />
+    </div>
+  </div>
+</template>

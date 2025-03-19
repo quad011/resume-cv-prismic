@@ -1,29 +1,29 @@
 <script setup>
-import gsap from "gsap";
+import gsap from 'gsap';
 const props = defineProps({
   title: {
     type: String,
   },
   btnBg: {
     type: String,
-    default: "white",
+    default: 'white',
   },
   linkUrl: {
     type: String,
   },
 });
 onMounted(() => {
-  const buttons = gsap.utils.toArray(".a-button");
-  buttons.forEach((item) => {
-    let span = item.querySelector("p");
+  const buttons = gsap.utils.toArray('.a-button');
+  buttons.forEach(item => {
+    let span = item.querySelector('p');
     let tl = gsap.timeline({ paused: true });
 
-    tl.to(span, { duration: 0.2, yPercent: -150, ease: "power2.in" });
+    tl.to(span, { duration: 0.2, yPercent: -150, ease: 'power2.in' });
     tl.set(span, { yPercent: 150 });
     tl.to(span, { duration: 0.2, yPercent: 0 });
 
-    item.addEventListener("mouseenter", () => tl.play(0));
-    item.addEventListener("mouseleave", () => tl.reverse());
+    item.addEventListener('mouseenter', () => tl.play(0));
+    item.addEventListener('mouseleave', () => tl.reverse());
   });
 });
 </script>
@@ -34,7 +34,10 @@ onMounted(() => {
     target="_blank"
     :class="`a-button mix-blend-difference bg-${btnBg} px-5 lg:px-8 py-3 lg:py-5 flex items-center justify-center pointer-events-auto overflow-hidden`"
   >
-    <p v-html="title" class="text-14 lg:text-base text-black" />
+    <p
+      v-html="title"
+      :class="`text-14 lg:text-base cursor-pointer ${btnBg === 'white' ? 'text-black' : 'text-white'}`"
+    />
   </a>
 </template>
 

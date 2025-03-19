@@ -36,6 +36,7 @@ const props = defineProps({
       :text="text"
       :reversed="reversed"
       :variation="variation"
+      innerClass="text-[8.46vw]"
     />
     <!-- MARQUEE -->
   </div>
