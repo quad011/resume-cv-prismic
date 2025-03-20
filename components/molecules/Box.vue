@@ -31,7 +31,12 @@ const props = defineProps({
         class="flex flex-col mb-2 last:mb-0"
       >
         <div class="flex">
-          <PrismicLink :field="link.link" class="link-reversed" />
+          <PrismicLink
+            @mouseenter="setCursor('hovered')"
+            @mouseleave="setCursor('default')"
+            :field="link.link"
+            class="link-reversed"
+          />
         </div>
       </div>
 

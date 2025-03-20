@@ -32,11 +32,11 @@ onMounted(() => {
   <a
     :href="linkUrl"
     target="_blank"
-    :class="`a-button mix-blend-difference bg-${btnBg} px-5 lg:px-8 py-3 lg:py-5 flex items-center justify-center pointer-events-auto overflow-hidden`"
+    :class="`a-button cursor-pointer mix-blend-difference bg-${btnBg} px-5 lg:px-8 py-3 lg:py-5 flex items-center justify-center pointer-events-auto overflow-hidden`"
   >
     <p
       v-html="title"
-      :class="`text-14 lg:text-base cursor-pointer ${btnBg === 'white' ? 'text-black' : 'text-white'}`"
+      :class="`text-14 lg:text-base ${btnBg === 'white' ? 'text-black' : 'text-white'}`"
     />
   </a>
 </template>

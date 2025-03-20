@@ -62,6 +62,8 @@ onMounted(() => {
         to="/"
         @click.native="scrollToTop"
         class="cursor-pointer pointer-events-auto"
+        @mouseenter="setCursor('hovered')"
+        @mouseleave="setCursor('default')"
       >
         <img
           alt="logo"
@@ -77,6 +79,8 @@ onMounted(() => {
             to="/"
             @click.native="scrollToTop"
             class="mr-5 text-14 lg:text-base"
+            @mouseenter="setCursor('hovered')"
+            @mouseleave="setCursor('default')"
           >
             <span v-html="'Home'" class="link" />
           </nuxt-link>
@@ -85,13 +89,17 @@ onMounted(() => {
             v-for="item in appData?.data?.main_navigation"
             :to="item.link.url"
             @click.prevent="scrollToSection(item.link.url)"
-            class="mr-5 last:mr-0 text-14 lg:text-base"
+            @mouseenter="setCursor('hovered')"
+            @mouseleave="setCursor('default')"
+            class="mr-5 last:mr-0 text-14 lg:text-base hover-target"
           >
             <span v-html="item.link.text" class="link" />
           </nuxt-link>
         </div>
 
         <a-button
+          @mouseenter="setCursor('hovered')"
+          @mouseleave="setCursor('default')"
           :title="appData?.data?.resume?.text"
           :linkUrl="appData?.data?.resume?.url"
           class="lg:ml-5"

@@ -29,8 +29,8 @@ const playing = ref(false);
   <div
     class="m-work-box cursor-pointer"
     @click.native="openPopup = true"
-    @mouseenter="playing = true"
-    @mouseleave="playing = false"
+    @mouseenter="((playing = true), setCursor('hovered'))"
+    @mouseleave="((playing = false), setCursor('default'))"
   >
     <c-html-video
       v-if="videoUrl"

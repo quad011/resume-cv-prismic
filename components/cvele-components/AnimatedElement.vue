@@ -30,9 +30,9 @@ onMounted(async () => {
         duration: 1,
         delay: props.delay,
         ease: 'power2.out',
+        immediateRender: false,
         scrollTrigger: {
           trigger: animatedElement.value,
-          start: 'top bottom',
           toggleActions: 'play none none reset',
         },
       },

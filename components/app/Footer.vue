@@ -19,15 +19,19 @@ onMounted(() => {
         </c-animated-element>
         <c-animated-element :fromY="50" :toY="0" :delay="0.1">
           <a
+            @mouseenter="setCursor('hovered')"
+            @mouseleave="setCursor('default')"
             :href="appData?.data?.phone?.url"
-            class="text-14 lg:text-base link reversed"
+            class="text-14 lg:text-base"
             >{{ appData?.data?.phone?.text }}</a
           >
         </c-animated-element>
         <c-animated-element :fromY="50" :toY="0" :delay="0.2">
           <a
+            @mouseenter="setCursor('hovered')"
+            @mouseleave="setCursor('default')"
             :href="appData?.data?.mail?.url"
-            class="text-14 lg:text-base link reversed"
+            class="text-14 lg:text-base"
             >{{ appData?.data?.mail?.text }}</a
           >
         </c-animated-element>

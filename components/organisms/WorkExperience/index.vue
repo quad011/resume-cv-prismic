@@ -45,6 +45,8 @@ onMounted(() => {});
       <c-animated-element :fromY="50" :toY="0" :delay="0.1">
         <div class="flex items-center">
           <div
+            @mouseenter="setCursor('hovered')"
+            @mouseleave="setCursor('default')"
             @click="prev"
             class="arrow w-[1.5rem] lg:w-[2.5rem] prev cursor-pointer"
           >
@@ -54,6 +56,8 @@ onMounted(() => {});
           </div>
 
           <div
+            @mouseenter="setCursor('hovered')"
+            @mouseleave="setCursor('default')"
             @click="next"
             class="arrow w-[1.5rem] lg:w-[2.5rem] next cursor-pointer"
           >

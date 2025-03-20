@@ -51,7 +51,11 @@ onMounted(async () => {
       <NuxtPage class="w-full h-full" />
     </NuxtLayout>
 
+    <a-cursor />
+
     <div
+      @mouseenter="setCursor('hovered')"
+      @mouseleave="setCursor('default')"
       class="fixed right-3 lg:right-5 bottom-16 lg:bottom-5 z-10 bg-white rounded-full transition-opacity duration-500 cursor-pointer mix-blend-difference"
       @click.native="scrollToTop"
       :class="showEl ? 'opacity-100' : 'opacity-0'"
