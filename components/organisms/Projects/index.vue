@@ -63,7 +63,7 @@ onMounted(() => {});
           />
 
           <div v-if="item.text" class="text-16 sm:text-14 xl:text-base content">
-            <PrismicRichText :field="item?.text" />
+            <PrismicRichText :field="item?.text" wrapper="div" />
           </div>
         </c-animated-element>
       </div>

@@ -585,19 +585,24 @@ export type MoreProjectsSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *PageHeader → Default → Primary*
+ * Item in *PageHeader → Default → Primary → Items*
  */
-export interface PageHeaderSliceDefaultPrimary {
+export interface PageHeaderSliceDefaultPrimaryItemsItem {
   /**
-   * Title field in *PageHeader → Default → Primary*
+   * Title field in *PageHeader → Default → Primary → Items*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: page_header.default.primary.title
+   * - **API ID Path**: page_header.default.primary.items[].title
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   title: prismic.KeyTextField;
+}
 
+/**
+ * Primary content in *PageHeader → Default → Primary*
+ */
+export interface PageHeaderSliceDefaultPrimary {
   /**
    * Caption field in *PageHeader → Default → Primary*
    *
@@ -607,6 +612,16 @@ export interface PageHeaderSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   caption: prismic.RichTextField;
+
+  /**
+   * Items field in *PageHeader → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_header.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  items: prismic.GroupField<Simplify<PageHeaderSliceDefaultPrimaryItemsItem>>;
 }
 
 /**
@@ -929,6 +944,7 @@ declare module '@prismicio/client' {
       MoreProjectsSliceVariation,
       MoreProjectsSliceDefault,
       PageHeaderSlice,
+      PageHeaderSliceDefaultPrimaryItemsItem,
       PageHeaderSliceDefaultPrimary,
       PageHeaderSliceVariation,
       PageHeaderSliceDefault,

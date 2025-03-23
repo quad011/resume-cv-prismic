@@ -41,7 +41,7 @@ const props = defineProps({
       </div>
 
       <div class="text-16 lg:text-base mt-5">
-        <PrismicRichText :field="text" />
+        <PrismicRichText :field="text" wrapper="div" />
       </div>
     </div>
   </div>
