@@ -18,7 +18,7 @@ const props = defineProps({
     <c-animated-element :fromY="-50" :toY="0">
       <c-scrolling-element
         fromY="0"
-        :toY="'-100vw'"
+        :toY="'-10vw'"
         startPosition="0"
         endPosition="top top"
         :fromScale="1"
@@ -38,7 +38,7 @@ const props = defineProps({
         endPosition="bottom top"
       >
         <h1
-          class="text-black flex items-center text-[10.5vw] whitespace-nowrap font-bold uppercase leading-[.9]"
+          class="text-black flex items-center text-[14vw] whitespace-nowrap font-bold uppercase leading-[.9]"
         >
           <c-animated-element :fromY="50" :toY="0" :delay="index / 10">
             <span v-html="item.title" />

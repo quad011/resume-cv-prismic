@@ -10,7 +10,9 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="o-more-projects px-4 lg:px-16 py-4 md:py-20 bg-black text-white">
+  <div
+    class="o-more-projects px-4 lg:px-16 py-4 md:py-20 bg-black text-white overflow-hidden"
+  >
     <c-animated-element :fromY="50" :toY="0">
       <h2 v-html="title" class="text-32 lg:text-40 mb-5 md:mb-10" />
     </c-animated-element>
