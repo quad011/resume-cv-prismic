@@ -34,7 +34,7 @@ const props = defineProps({
 .hamburger {
   .hamburger-box {
     .line {
-      @apply absolute top-0 block w-full h-[.1rem] origin-center transition-all duration-500 bg-white;
+      @apply absolute top-0 block w-full h-[.1rem] origin-center transition-all duration-500 bg-black;
       &--1 {
         @apply top-0;
       }
@@ -65,7 +65,7 @@ const props = defineProps({
   &--is-active {
     .hamburger-box {
       .line {
-        @apply bg-white;
+        @apply bg-black;
       }
       .line--1 {
         @apply w-full top-2/4;
