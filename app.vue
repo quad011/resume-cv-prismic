@@ -1,10 +1,9 @@
 <script setup>
+import { VueLenis, useLenis } from 'lenis/vue';
 import { useAppStore } from '@/stores/app';
 import appConfig from '~/config/app';
 
 const appStore = useAppStore();
-
-// const route = useRoute();
 
 const pageTitle = ref('Default Title');
 
@@ -39,6 +38,14 @@ useHead({
   title: `${appConfig.site_name} - ${pageTitle.value}`,
 });
 
+const lenis = useLenis(({ scroll }) => {
+  // called every scroll
+});
+
+watch(lenis, lenis => {
+  // lenis instance
+});
+
 onMounted(async () => {
   // Fetch globally on app load
   await appStore.fetchAppData();
@@ -47,9 +54,11 @@ onMounted(async () => {
 
 <template>
   <div class="app h-full w-full">
-    <NuxtLayout class="w-full h-full bg-white2">
-      <NuxtPage class="w-full h-full" />
-    </NuxtLayout>
+    <VueLenis root>
+      <NuxtLayout class="w-full h-full bg-white2">
+        <NuxtPage class="w-full h-full" />
+      </NuxtLayout>
+    </VueLenis>
 
     <a-cursor />
 

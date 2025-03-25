@@ -62,6 +62,7 @@ export default defineNuxtConfig({
     'nuxt-font-loader',
     '@nuxt/image',
     '@nuxtjs/device',
+    'lenis/nuxt',
   ],
 
   fontLoader: {

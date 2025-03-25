@@ -39,7 +39,6 @@ onMounted(() => {});
         class="px-4 w-full sm:w-1/2 xl:w-1/3 mb-10 lg:mb-20 lg:[&:nth-last-child(-n+3)]:mb-0 flex flex-col h-full"
       >
         <c-animated-element
-          :delay="index / 10"
           :fromX="animationConfig[index % 3].fromX"
           :fromY="animationConfig[index % 3].fromY"
         >
