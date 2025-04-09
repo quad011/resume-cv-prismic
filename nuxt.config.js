@@ -16,6 +16,13 @@ export default defineNuxtConfig({
     dirs: ['utils'],
   },
 
+  image: {
+    imgix: {
+      baseURL: 'https://images.prismic.io/resume-dc/',
+    },
+    domains: ['images.prismic.io'],
+  },
+
   router: {
     base: '/resume-cv-prismic/',
     options: {
