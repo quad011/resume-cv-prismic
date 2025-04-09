@@ -1,5 +1,6 @@
 <script setup>
 import { gsap } from 'gsap';
+import { useScrollLock } from '@vueuse/core';
 
 const progress = ref({ value: 0 });
 const emit = defineEmits(['update:introVisible']);
@@ -9,8 +10,12 @@ const computedProgress = computed(() => {
   return `${Math.round(progress.value.value)}`.split('');
 });
 
+const isLocked = useScrollLock(document.body);
+
 // Use GSAP animation
 onMounted(() => {
+  isLocked.value = true;
+
   gsap.to(progress.value, {
     value: 100,
     ease: 'power2.inOut',
