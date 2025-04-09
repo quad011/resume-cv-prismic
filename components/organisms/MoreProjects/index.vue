@@ -38,6 +38,7 @@ const props = defineProps({
             class="image pointer-events-none absolute left-0 translate-x-[20%] top-0 -translate-y-[20%] w-auto h-[5em] mix-blend-difference"
           >
             <c-mouse-parallax class="w-full h-full">
+              item.image: {{ item.image }}
               <c-picture
                 class="w-full h-full"
                 innerClass=""
