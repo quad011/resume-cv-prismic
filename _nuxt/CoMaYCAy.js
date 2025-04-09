@@ -1,0 +1,1 @@
+import i from"./YF-j8KBw.js";import{as as c,I as m,e as n,h as e}from"./BEg39ow_.js";import"./B_gsK5GH.js";import"./1nJOKNTF.js";import"./BF7nx1eR.js";const h={__name:"index",props:{slice:Object},setup(s){const o=s,{getPrimary:t,items:p}=c(o.slice);return(a,_)=>{const r=i;return n(),m(r,{title:e(t)("title"),items:e(t)("items")},null,8,["title","items"])}}};export{h as default};

@@ -1,1 +1,0 @@
-import c from"./Bo_rNqb5.js";import{ag as s,z as n,o as a,k as i}from"./Ca75aegm.js";import"./Cjdi4ePK.js";import"./Brfk6Bdo.js";import"./6qCihK2t.js";const g={__name:"index",props:{slice:Object},setup(t){const e=t,{getPrimary:o}=s(e.slice);return(p,m)=>{const r=c;return a(),n(r,{text:i(o)("text")},null,8,["text"])}}};export{g as default};
